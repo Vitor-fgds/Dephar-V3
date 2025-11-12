@@ -3,6 +3,34 @@ const searchButton = document.querySelector(".search-button");
 const containerPrincipio = document.querySelector(".results-grid");
 const resultados = document.querySelector(".results-section");
 const authButton = document.getElementById("authButton");
+const btnCriarPrincipio = document.getElementById("btnCriarPrincipio");
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const navMenu = document.getElementById("navMenu");
+
+// Toggle menu mobile
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener("click", () => {
+        mobileMenuBtn.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    // Fecha o menu ao clicar em um link
+    const navLinks = navMenu.querySelectorAll("a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenuBtn.classList.remove("active");
+            navMenu.classList.remove("active");
+        });
+    });
+
+    // Fecha o menu ao clicar fora
+    document.addEventListener("click", (e) => {
+        if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileMenuBtn.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
+    });
+}
 
 // Função para ir para home
 const goHome = () => {
@@ -18,44 +46,46 @@ const verificarLogin = () => {
         // Usuário está logado - mostrar botão de Logout
         authButton.textContent = "Sair";
         authButton.classList.add("logged-in");
-        authButton.href = "#"; // Remove o link de navegação
+        authButton.href = "#";
         
         // Adicionar evento de logout
         authButton.addEventListener("click", (event) => {
             event.preventDefault();
             fazerLogout();
         });
+
+        // Se for moderador, mostrar botão de criar princípio
+        if (userType === "Moderador") {
+            btnCriarPrincipio.style.display = "inline-flex";
+        }
     } else {
         // Usuário não está logado - mostrar botão de Login
         authButton.textContent = "Entrar";
         authButton.classList.remove("logged-in");
         authButton.href = "/dephar/login";
+        btnCriarPrincipio.style.display = "none";
     }
 };
 
 // Função para fazer logout
 const fazerLogout = () => {
-    // Limpar dados do localStorage
-    localStorage.removeItem("token");
-    localStorage.removeItem("userType");
-    
-    // Opcional: Mostrar mensagem de confirmação
     const confirmacao = confirm("Deseja realmente sair?");
     
     if (confirmacao) {
+        // Limpar dados do localStorage
+        localStorage.removeItem("token");
+        localStorage.removeItem("userType");
+        
         // Atualizar o botão
         authButton.textContent = "Entrar";
         authButton.classList.remove("logged-in");
         authButton.href = "/dephar/login";
         
-        // Opcional: Redirecionar para a página de login
-        // window.location.href = "/dephar/login";
+        // Esconder botão de criar princípio
+        btnCriarPrincipio.style.display = "none";
         
-        // Ou apenas recarregar a página
+        // Recarregar a página
         window.location.reload();
-    } else {
-        // Se cancelou, restaurar o token (caso tenha sido removido)
-        // Nota: Na implementação acima, só remove se confirmar, então não precisa restaurar
     }
 };
 
@@ -114,7 +144,7 @@ const buscaPrincipios = (principio) => {
     divPrincipio.appendChild(descricaoPrincipio);
 
     divPrincipio.addEventListener("click", () => {
-        window.open(`/dephar/principio?id=${principio._id}`, "_blank");
+        window.location.href = `/dephar/principio?id=${principio._id}`;
     });
 
     containerPrincipio.appendChild(divPrincipio);
@@ -156,8 +186,8 @@ const start = async () => {
 };
 
 // Inicializar página
-verificarLogin(); // Verificar status de login ao carregar
-start(); // Carregar princípios
+verificarLogin();
+start();
 
 // Event Listeners
 searchButton.addEventListener("click", pesquisaPrincipios);

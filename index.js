@@ -35,6 +35,10 @@ app.get("/dephar/register", (req,res) => {
     res.sendFile(path.join(__dirname, "public", "html", "register.html"))
 })
 
+app.get("/dephar/criarPrincipio", (req,res) => {
+    res.sendFile(path.join(__dirname, "public", "html", "criarPrincipio.html"))
+})
+
 app.use("/api/v1/dephar", principiosRouter)
 app.use("/api/v1/auth", authRouter)
 

@@ -14,7 +14,12 @@
     <header class="header">
         <div class="header-content">
             <div class="logo" onclick="goHome()">DePhar</div>
-            <nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="/dephar">Início</a></li>
                     <li><a href="/dephar/sobre">Sobre</a></li>
@@ -26,9 +31,14 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Back Button -->
-        <a  class="back-button" onclick="goBack()"> 
+        <a class="back-button" onclick="goBack()"> 
             ← Voltar à Pesquisa
         </a>
+
+        <!-- Delete Button (só aparece para moderadores) -->
+        <button class="delete-button" id="deleteButton" style="display: none;">
+            🗑️ Excluir Princípio Ativo
+        </button>
 
         <!-- Loading State -->
         <div class="loading" id="loadingState">
@@ -69,29 +79,40 @@
                 <!-- Description -->
                 <div class="property-card large-card">
                     <h2 class="property-title">📋 Descrição</h2>
-                    <div class="property-content" id="descricao">
-                    </div>
+                    <div class="property-content" id="descricao"></div>
                 </div>
 
                 <!-- Therapeutic Indications -->
                 <div class="property-card">
                     <h2 class="property-title">✅ Indicações Terapêuticas</h2>
-                    <div class="property-content" id="indicacoesTerapeuticas">
-                    </div>
+                    <div class="property-content" id="indicacoesTerapeuticas"></div>
                 </div>
 
                 <!-- Contraindications -->
                 <div class="property-card warning-card">
                     <h2 class="property-title">⚠️ Contraindicações</h2>
-                    <div class="property-content" id="contraIndicacoes">
-                    </div>
+                    <div class="property-content" id="contraIndicacoes"></div>
+                </div>
+
+                <div class="property-card">
+                    <h2 class="property-title">Validade</h2>
+                    <div class="property-content" id="validade"></div>
+                </div>
+
+                <div class="property-card warning-card">
+                    <h2 class="property-title">⚠️ Descarte</h2>
+                    <div class="property-content" id="descarte"></div>
+                </div>
+
+                <div class="property-card">
+                    <h2 class="property-title">Armazenamento</h2>
+                    <div class="property-content" id="armazenamento"></div>
                 </div>
 
                 <!-- Side Effects -->
                 <div class="property-card warning-card">
-                    <h2 class="property-title">🔍 Efeitos Colaterais</h2>
-                    <div class="property-content" id="efeitosColaterais">
-                    </div>
+                    <h2 class="property-title">🔴 Efeitos Colaterais</h2>
+                    <div class="property-content" id="efeitosColaterais"></div>
                 </div>
             </div>
         </div>
@@ -104,8 +125,9 @@
             <p>Diamantina, Minas Gerais - Brasil</p>
             <div class="footer-links">
                 <a href="https://portal.ufvjm.edu.br/">UFVJM</a>
+            </div>
         </div>
     </footer>
+    <script src="js/principios.js"></script>
 </body>
-<script src="js/principios.js"></script>
 </html>

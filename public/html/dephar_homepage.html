@@ -14,7 +14,12 @@
     <header class="header">
         <div class="header-content">
             <div class="logo" onclick="goHome()">DePhar</div>
-            <nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="/dephar">Início</a></li>
                     <li><a href="/dephar/sobre">Sobre</a></li>
@@ -30,6 +35,11 @@
         <div class="title-section">
             <h1 class="main-title">DePhar</h1>
             <p class="subtitle">Descubra informações precisas sobre princípios ativos farmacêuticos</p>
+            
+            <!-- Botão para criar princípio (só aparece para moderadores) -->
+            <a href="/dephar/criarPrincipio" class="btn-criar-principio" id="btnCriarPrincipio" style="display: none;">
+                ➕ Cadastrar Novo Princípio Ativo
+            </a>
         </div>
 
         <!-- Search Section -->

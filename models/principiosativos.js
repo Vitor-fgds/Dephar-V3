@@ -53,7 +53,23 @@ const principioSchema = new mongoose.Schema({
     classeFarmacologica: {
         type: String,
         required: true
+    },
+
+    armazenamento: {
+        type: String,
+        required: true
+    },
+
+    descarte: {
+        type: String,
+        required: true
+    },
+
+    validadeAnos: {
+        type: Number,
+        required: true
     }
+    
 }, {timestamps: true})
 
 const principioModel = mongoose.model("PrincipioAtivo", principioSchema)

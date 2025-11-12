@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DePhar - Cadastro de Princípio Ativo</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/criarPrincipio.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo" onclick="goHome()">DePhar</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/dephar">Início</a></li>
+                    <li><a href="/dephar/sobre">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Title Section -->
+        <div class="title-section">
+            <h1 class="main-title">Cadastrar Princípio Ativo</h1>
+            <p class="subtitle">Preencha todos os campos obrigatórios para adicionar um novo princípio ativo</p>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <form id="principioForm">
+                <!-- Informações Básicas -->
+                <div class="section-title">Informações Básicas</div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            Nome<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-input" 
+                            id="nome"
+                            maxlength="50"
+                            required
+                            placeholder="Ex: Paracetamol"
+                        >
+                        <div class="help-text">Máximo 50 caracteres</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Fórmula Molecular<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-input" 
+                            id="formula"
+                            maxlength="30"
+                            required
+                            placeholder="Ex: C8H9NO2"
+                        >
+                        <div class="help-text">Máximo 30 caracteres</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Descrição<span class="required">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        class="form-input" 
+                        id="descricao"
+                        maxlength="120"
+                        required
+                        placeholder="Breve descrição do princípio ativo"
+                    >
+                    <div class="help-text">Máximo 120 caracteres</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            Peso Molar<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="number" 
+                            class="form-input" 
+                            id="pesoMolar"
+                            step="0.01"
+                            required
+                            placeholder="Ex: 151.16"
+                        >
+                        <div class="help-text">Em g/mol</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Validade<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="number" 
+                            class="form-input" 
+                            id="validadeAnos"
+                            min="1"
+                            required
+                            placeholder="Ex: 3"
+                        >
+                        <div class="help-text">Em anos</div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Classificação -->
+                <div class="section-title">Classificação</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            Classe Terapêutica<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-input" 
+                            id="classeTerapeutica"
+                            required
+                            placeholder="Ex: Analgésicos"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Classe Farmacológica<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-input" 
+                            id="classeFarmacologica"
+                            required
+                            placeholder="Ex: Inibidor da ciclooxigenase"
+                        >
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Indicações Terapêuticas -->
+                <div class="section-title">Indicações Terapêuticas</div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        Indicações<span class="required">*</span>
+                    </label>
+                    <div class="array-input-container" id="indicacoesContainer">
+                        <div class="array-items" id="indicacoesItems">
+                            <div class="array-item">
+                                <input 
+                                    type="text" 
+                                    class="form-input indicacao-input" 
+                                    placeholder="Digite uma indicação terapêutica"
+                                    required
+                                >
+                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addIndicacao()">+ Adicionar Indicação</button>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Contraindicações -->
+                <div class="section-title">Contraindicações</div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        Contraindicações<span class="required">*</span>
+                    </label>
+                    <div class="array-input-container" id="contraindicacoesContainer">
+                        <div class="array-items" id="contraindicacoesItems">
+                            <div class="array-item">
+                                <input 
+                                    type="text" 
+                                    class="form-input contraindicacao-input" 
+                                    placeholder="Digite uma contraindicação"
+                                    required
+                                >
+                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addContraindicacao()">+ Adicionar Contraindicação</button>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Efeitos Colaterais -->
+                <div class="section-title">Efeitos Colaterais</div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        Efeitos Colaterais<span class="required">*</span>
+                    </label>
+                    <div class="array-input-container" id="efeitosContainer">
+                        <div class="array-items" id="efeitosItems">
+                            <div class="array-item">
+                                <input 
+                                    type="text" 
+                                    class="form-input efeito-input" 
+                                    placeholder="Digite um efeito colateral"
+                                    required
+                                >
+                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addEfeito()">+ Adicionar Efeito Colateral</button>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <!-- Armazenamento e Descarte -->
+                <div class="section-title">Armazenamento e Descarte</div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Armazenamento<span class="required">*</span>
+                    </label>
+                    <textarea 
+                        class="form-textarea" 
+                        id="armazenamento"
+                        required
+                        placeholder="Descreva as condições adequadas de armazenamento"
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        Descarte<span class="required">*</span>
+                    </label>
+                    <textarea 
+                        class="form-textarea" 
+                        id="descarte"
+                        required
+                        placeholder="Descreva os procedimentos corretos de descarte"
+                    ></textarea>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="cancelForm()">Cancelar</button>
+                    <button type="submit" class="btn-submit">Cadastrar Princípio Ativo</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 DEPHAR - Departamento de Farmácia UFVJM</p>
+            <p>Diamantina, Minas Gerais - Brasil</p>
+            <div class="footer-links">
+                <a href="https://portal.ufvjm.edu.br/">UFVJM</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/criarPrincipio.js"></script>
+</body>
+</html>
