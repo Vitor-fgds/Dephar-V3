@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DePhar - Detalhes do Princípio Ativo</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/principio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo" onclick="goHome()">DePhar</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/dephar">Início</a></li>
+                    <li><a href="/dephar/sobre">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Back Button -->
+        <a  class="back-button" onclick="goBack()"> 
+            ← Voltar à Pesquisa
+        </a>
+
+        <!-- Loading State -->
+        <div class="loading" id="loadingState">
+            <div class="loading-spinner"></div>
+            <p>Carregando informações do princípio ativo...</p>
+        </div>
+
+        <!-- Content Section -->
+        <div id="contentSection" style="display: none;">
+            <!-- Title Section -->
+            <div class="title-section">
+                <h1 class="principle-title" id="principleName"></h1>
+                <p class="principle-subtitle"></p>
+            </div>
+
+            <!-- Technical Information Grid -->
+            <div class="technical-grid">
+                <div class="technical-card">
+                    <div class="technical-title">Fórmula Molecular</div>
+                    <div class="technical-value" id="formula"></div>
+                </div>
+                <div class="technical-card">
+                    <div class="technical-title">Peso Molar</div>
+                    <div class="technical-value" id="pesoMolar"></div>
+                </div>
+                <div class="technical-card">
+                    <div class="technical-title">Classe Terapêutica</div>
+                    <div class="technical-value" id="classeTerapeutica"></div>
+                </div>
+                <div class="technical-card">
+                    <div class="technical-title">Classe Farmacológica</div>
+                    <div class="technical-value" id="classeFarmacologica"></div>
+                </div>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="properties-grid">
+                <!-- Description -->
+                <div class="property-card large-card">
+                    <h2 class="property-title">📋 Descrição</h2>
+                    <div class="property-content" id="descricao">
+                    </div>
+                </div>
+
+                <!-- Therapeutic Indications -->
+                <div class="property-card">
+                    <h2 class="property-title">✅ Indicações Terapêuticas</h2>
+                    <div class="property-content" id="indicacoesTerapeuticas">
+                    </div>
+                </div>
+
+                <!-- Contraindications -->
+                <div class="property-card warning-card">
+                    <h2 class="property-title">⚠️ Contraindicações</h2>
+                    <div class="property-content" id="contraIndicacoes">
+                    </div>
+                </div>
+
+                <!-- Side Effects -->
+                <div class="property-card warning-card">
+                    <h2 class="property-title">🔍 Efeitos Colaterais</h2>
+                    <div class="property-content" id="efeitosColaterais">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 DEPHAR - Departamento de Farmácia UFVJM</p>
+            <p>Diamantina, Minas Gerais - Brasil</p>
+            <div class="footer-links">
+                <a href="https://portal.ufvjm.edu.br/">UFVJM</a>
+        </div>
+    </footer>
+</body>
+<script src="js/principios.js"></script>
+</html>

@@ -1,0 +1,222 @@
+[
+  {
+    "nome": "Albendazol",
+    "descricao": "Antiparasitário eficaz contra vermes intestinais e neurocisticercose.",
+    "formula": "C12H15N3O2S",
+    "pesoMolar": 265.34,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Helmintíases", "Neurocisticercose"],
+    "contraIndicacoes": ["Gravidez", "Doença hepática severa"],
+    "efeitosColaterais": ["Dor abdominal", "Náusea", "Tontura"],
+    "classeFarmacologica": "Benzoimidazóis"
+  },
+  {
+    "nome": "Antimoniato de meglumina",
+    "descricao": "Utilizado para tratar leishmaniose cutânea e visceral.",
+    "formula": "C7H17NO5Sb2",
+    "pesoMolar": 514.78,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Leishmaniose"],
+    "contraIndicacoes": ["Cardiopatia", "Doença hepática"],
+    "efeitosColaterais": ["Náusea", "Dor no local da aplicação", "Arritmia"],
+    "classeFarmacologica": "Antimoniais pentavalentes"
+  },
+  {
+    "nome": "Arteméter + Lumefantrina",
+    "descricao": "Associação de antimaláricos para tratamento de malária por P. falciparum.",
+    "formula": "C16H26O5 + C30H32Cl3NO",
+    "pesoMolar": 298.37,
+    "classeTerapeutica": "Antimaláricos",
+    "indicacoesTerapeuticas": ["Malária falciparum"],
+    "contraIndicacoes": ["Gravidez", "QT longo"],
+    "efeitosColaterais": ["Dor de cabeça", "Tontura", "Anorexia"],
+    "classeFarmacologica": "Artemisininas combinadas"
+  },
+  {
+    "nome": "Artesunato",
+    "descricao": "Derivado da artemisinina usado no tratamento da malária grave.",
+    "formula": "C19H28O8",
+    "pesoMolar": 384.42,
+    "classeTerapeutica": "Antimaláricos",
+    "indicacoesTerapeuticas": ["Malária grave"],
+    "contraIndicacoes": ["Hipersensibilidade à artemisinina"],
+    "efeitosColaterais": ["Febre", "Anemia", "Leucopenia"],
+    "classeFarmacologica": "Derivados da artemisinina"
+  },
+  {
+    "nome": "Artesunato + Mefloquina",
+    "descricao": "Combinado usado para tratar malária por cepas resistentes.",
+    "formula": "C19H28O8 + C17H16F6N2O",
+    "pesoMolar": 751.71,
+    "classeTerapeutica": "Antimaláricos",
+    "indicacoesTerapeuticas": ["Malária resistente"],
+    "contraIndicacoes": ["Doença psiquiátrica", "Epilepsia"],
+    "efeitosColaterais": ["Ansiedade", "Tontura", "Insônia"],
+    "classeFarmacologica": "Artemisininas combinadas"
+  },
+  {
+    "nome": "Benznidazol",
+    "descricao": "Tratamento da doença de Chagas na fase aguda e crônica inicial.",
+    "formula": "C12H15N3O2",
+    "pesoMolar": 229.27,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Doença de Chagas"],
+    "contraIndicacoes": ["Gravidez", "Disfunção hepática"],
+    "efeitosColaterais": ["Erupções cutâneas", "Neuropatia", "Anorexia"],
+    "classeFarmacologica": "Nitroimidazóis"
+  },
+  {
+    "nome": "Benzoilmetronidazol",
+    "descricao": "Forma pró-fármaco do metronidazol com ação contra protozoários.",
+    "formula": "C13H13N3O4",
+    "pesoMolar": 275.26,
+    "classeTerapeutica": "Antiprotozoários",
+    "indicacoesTerapeuticas": ["Amebíase", "Giardíase"],
+    "contraIndicacoes": ["Gravidez", "Doença hepática"],
+    "efeitosColaterais": ["Náusea", "Gosto metálico", "Tontura"],
+    "classeFarmacologica": "Nitroimidazóis"
+  },
+  {
+    "nome": "Citrato de dietilcarbamazina",
+    "descricao": "Utilizado no tratamento da filariose e outras infecções por nematódeos.",
+    "formula": "C10H21N3O·C6H8O7",
+    "pesoMolar": 433.47,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Filariose", "Loa loa"],
+    "contraIndicacoes": ["Gestação", "Doença renal grave"],
+    "efeitosColaterais": ["Febre", "Urticária", "Tontura"],
+    "classeFarmacologica": "Piperazinas"
+  },
+  {
+    "nome": "Difosfato de cloroquina",
+    "descricao": "Antimalárico também usado em doenças autoimunes como lúpus.",
+    "formula": "C18H26ClN3·2H3PO4",
+    "pesoMolar": 515.86,
+    "classeTerapeutica": "Antimaláricos",
+    "indicacoesTerapeuticas": ["Malária", "Lúpus", "Artrite reumatoide"],
+    "contraIndicacoes": ["Psoríase", "Retinopatia"],
+    "efeitosColaterais": ["Visão turva", "Náusea", "Prurido"],
+    "classeFarmacologica": "Aminoquinolinas"
+  },
+  {
+    "nome": "Difosfato de primaquina",
+    "descricao": "Usado na erradicação do estágio hepático do Plasmodium vivax.",
+    "formula": "C15H21N3O·2H3PO4",
+    "pesoMolar": 455.38,
+    "classeTerapeutica": "Antimaláricos",
+    "indicacoesTerapeuticas": ["Malária vivax"],
+    "contraIndicacoes": ["Deficiência de G6PD", "Gravidez"],
+    "efeitosColaterais": ["Anemia hemolítica", "Dor abdominal"],
+    "classeFarmacologica": "8-Aminoquinolinas"
+  },
+  {
+    "nome": "Isetionato de pentamidina",
+    "descricao": "Antiprotozoário utilizado para tratar leishmaniose e pneumonia por Pneumocystis.",
+    "formula": "C19H24N4O2·CH4O3S",
+    "pesoMolar": 340.43,
+    "classeTerapeutica": "Antiprotozoários",
+    "indicacoesTerapeuticas": ["Leishmaniose", "Pneumonia por Pneumocystis"],
+    "contraIndicacoes": ["Diabetes", "Disfunção hepática"],
+    "efeitosColaterais": ["Hipoglicemia", "Hipotensão", "Nefrotoxicidade"],
+    "classeFarmacologica": "Diamidinas"
+  },
+  {
+    "nome": "Ivermectina",
+    "descricao": "Antiparasitário eficaz contra vermes, ácaros e piolhos.",
+    "formula": "C48H74O14",
+    "pesoMolar": 875.10,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Estrongiloidíase", "Escabiose", "Pediculose"],
+    "contraIndicacoes": ["Gravidez", "Doença hepática"],
+    "efeitosColaterais": ["Prurido", "Erupções cutâneas", "Tontura"],
+    "classeFarmacologica": "Lactonas macrocíclicas"
+  },
+  {
+    "nome": "Nifurtimox",
+    "descricao": "Utilizado no tratamento da doença de Chagas, principalmente em crianças.",
+    "formula": "C10H13N3O5S",
+    "pesoMolar": 287.29,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Doença de Chagas"],
+    "contraIndicacoes": ["Gravidez", "Doença neurológica"],
+    "efeitosColaterais": ["Perda de apetite", "Náusea", "Irritabilidade"],
+    "classeFarmacologica": "Nitrofuranos"
+  },
+  {
+    "nome": "Oxamniquina",
+    "descricao": "Antiparasitário usado no tratamento da esquistossomose por S. mansoni.",
+    "formula": "C14H21NO3",
+    "pesoMolar": 251.32,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Esquistossomose"],
+    "contraIndicacoes": ["Gravidez", "Epilepsia"],
+    "efeitosColaterais": ["Sonolência", "Tontura", "Náusea"],
+    "classeFarmacologica": "Isoquinolinas"
+  },
+  {
+    "nome": "Permetrina",
+    "descricao": "Inseticida tópico usado no tratamento de escabiose e pediculose.",
+    "formula": "C21H20Cl2O3",
+    "pesoMolar": 391.29,
+    "classeTerapeutica": "Ectoparasiticidas",
+    "indicacoesTerapeuticas": ["Escabiose", "Pediculose"],
+    "contraIndicacoes": ["Alergia a piretróides"],
+    "efeitosColaterais": ["Ardência", "Coceira", "Irritação local"],
+    "classeFarmacologica": "Piretróides"
+  },
+  {
+    "nome": "Pirimetamina",
+    "descricao": "Antiprotozoário usado no tratamento da toxoplasmose e malária.",
+    "formula": "C12H13ClN4",
+    "pesoMolar": 248.71,
+    "classeTerapeutica": "Antiprotozoários",
+    "indicacoesTerapeuticas": ["Toxoplasmose", "Malária"],
+    "contraIndicacoes": ["Anemia megaloblástica"],
+    "efeitosColaterais": ["Mielossupressão", "Náusea", "Erupções cutâneas"],
+    "classeFarmacologica": "Antifolatos"
+  },
+  {
+    "nome": "Praziquantel",
+    "descricao": "Antiparasitário de amplo espectro para esquistossomose e teníase.",
+    "formula": "C19H24N2O2",
+    "pesoMolar": 312.41,
+    "classeTerapeutica": "Antiparasitários",
+    "indicacoesTerapeuticas": ["Esquistossomose", "Teníase", "Cisticercose"],
+    "contraIndicacoes": ["Hipersensibilidade", "Gravidez"],
+    "efeitosColaterais": ["Tontura", "Dor abdominal", "Sonolência"],
+    "classeFarmacologica": "Isoquinolinas"
+  },
+  {
+    "nome": "Succinato de tafenoquina",
+    "descricao": "Antimalárico indicado para malária por P. vivax com ação hepática prolongada.",
+    "formula": "C24H28F3N3O3·C4H6O4",
+    "pesoMolar": 537.56,
+    "classeTerapeutica": "Antimaláricos",
+    "indicacoesTerapeuticas": ["Malária por P. vivax"],
+    "contraIndicacoes": ["Deficiência de G6PD", "Gravidez"],
+    "efeitosColaterais": ["Hemólise", "Náusea", "Dor de cabeça"],
+    "classeFarmacologica": "8-Aminoquinolinas"
+  },
+  {
+    "nome": "Sulfato de hidroxicloroquina",
+    "descricao": "Utilizado para artrite reumatoide, lúpus e malária.",
+    "formula": "C18H26ClN3O·H2SO4",
+    "pesoMolar": 433.95,
+    "classeTerapeutica": "Antimaláricos",
+    "indicacoesTerapeuticas": ["Lúpus", "Artrite", "Malária"],
+    "contraIndicacoes": ["Retinopatia", "Psoríase"],
+    "efeitosColaterais": ["Alterações visuais", "Náusea", "Dor abdominal"],
+    "classeFarmacologica": "Aminoquinolinas"
+  },
+  {
+    "nome": "Teclozana",
+    "descricao": "Utilizado em associação para tratar amebíase e giardíase.",
+    "formula": "C17H15Cl3N2O3",
+    "pesoMolar": 401.67,
+    "classeTerapeutica": "Antiprotozoários",
+    "indicacoesTerapeuticas": ["Amebíase", "Giardíase"],
+    "contraIndicacoes": ["Gravidez", "Insuficiência hepática"],
+    "efeitosColaterais": ["Dor abdominal", "Vômito", "Flatulência"],
+    "classeFarmacologica": "Tiazóis"
+  }
+]

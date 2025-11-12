@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DePhar - Princípios Ativos</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dephar_homepage.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo" onclick="goHome()">DePhar</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/dephar">Início</a></li>
+                    <li><a href="/dephar/sobre">Sobre</a></li>
+                    <li><a href="/dephar/login" id="authButton" class="auth-button">Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Title Section -->
+        <div class="title-section">
+            <h1 class="main-title">DePhar</h1>
+            <p class="subtitle">Descubra informações precisas sobre princípios ativos farmacêuticos</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    placeholder="Digite o nome do princípio ativo..."
+                    id="searchInput"
+                >
+                <button class="search-button">
+                    Pesquisar
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <div class="results-grid" id="resultsGrid"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 DEPHAR - Departamento de Farmácia UFVJM</p>
+            <p>Diamantina, Minas Gerais - Brasil</p>
+            <div class="footer-links">
+                <a href="https://portal.ufvjm.edu.br/">UFVJM</a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/dephar_homepage.js"></script>
+</body>
+</html>
