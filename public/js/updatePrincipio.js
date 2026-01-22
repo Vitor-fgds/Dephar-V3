@@ -45,7 +45,7 @@ function removeArrayItem(button) {
 }
 
 // Função para adicionar indicação
-function addIndicacao() {
+function addIndicacao(value = "") {
     const container = document.getElementById("indicacoesItems");
     const newItem = document.createElement("div");
     newItem.classList.add("array-item");
@@ -54,6 +54,7 @@ function addIndicacao() {
             type="text" 
             class="form-input indicacao-input" 
             placeholder="Digite uma indicação terapêutica"
+            value ="${value}"
             required
         >
         <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
@@ -62,7 +63,7 @@ function addIndicacao() {
 }
 
 // Função para adicionar contraindicação
-function addContraindicacao() {
+function addContraindicacao(value = "") {
     const container = document.getElementById("contraindicacoesItems");
     const newItem = document.createElement("div");
     newItem.classList.add("array-item");
@@ -71,6 +72,7 @@ function addContraindicacao() {
             type="text" 
             class="form-input contraindicacao-input" 
             placeholder="Digite uma contraindicação"
+            value ="${value}"
             required
         >
         <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
@@ -79,7 +81,7 @@ function addContraindicacao() {
 }
 
 // Função para adicionar forma farmacêutica
-function addFormaFarmaceutica() {
+function addFormaFarmaceutica(value = "") {
     const container = document.getElementById("formasItems");
     const newItem = document.createElement("div");
     newItem.classList.add("array-item");
@@ -88,6 +90,7 @@ function addFormaFarmaceutica() {
             type="text" 
             class="form-input forma-input" 
             placeholder="Ex: Comprimido 500mg"
+            value ="${value}"
             required
         >
         <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
@@ -96,7 +99,7 @@ function addFormaFarmaceutica() {
 }
 
 // Função para adicionar interação medicamentosa
-function addInteracaoMedicamentosa() {
+function addInteracaoMedicamentosa(value = "") {
     const container = document.getElementById("interacoesMedItems");
     const newItem = document.createElement("div");
     newItem.classList.add("array-item");
@@ -105,6 +108,7 @@ function addInteracaoMedicamentosa() {
             type="text" 
             class="form-input interacao-med-input" 
             placeholder="Ex: Evitar uso com varfarina"
+            value ="${value}"
         >
         <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
     `;
@@ -112,7 +116,7 @@ function addInteracaoMedicamentosa() {
 }
 
 // Função para adicionar interação com alimentos
-function addInteracaoAlimento() {
+function addInteracaoAlimento(value = "") {
     const container = document.getElementById("interacoesAlimItems");
     const newItem = document.createElement("div");
     newItem.classList.add("array-item");
@@ -121,6 +125,7 @@ function addInteracaoAlimento() {
             type="text" 
             class="form-input interacao-alim-input" 
             placeholder="Ex: Tomar com alimentos"
+            value ="${value}"
         >
         <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
     `;
@@ -128,7 +133,7 @@ function addInteracaoAlimento() {
 }
 
 // Função para adicionar incompatibilidade
-function addIncompatibilidade() {
+function addIncompatibilidade(value = "") {
     const container = document.getElementById("incompatibilidadesItems");
     const newItem = document.createElement("div");
     newItem.classList.add("array-item");
@@ -137,6 +142,7 @@ function addIncompatibilidade() {
             type="text" 
             class="form-input incompatibilidade-input" 
             placeholder="Ex: Incompatível com soluções alcalinas"
+            value ="${value}"
         >
         <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
     `;
@@ -144,7 +150,7 @@ function addIncompatibilidade() {
 }
 
 // Função para adicionar bula
-function addBula() {
+function addBula(titulo = "", url =  "") {
     const container = document.getElementById("bulasItems");
     const newItem = document.createElement("div");
     newItem.classList.add("array-item");
@@ -154,11 +160,13 @@ function addBula() {
             class="form-input bula-titulo-input" 
             placeholder="Título da bula"
             style="flex: 1; margin-right: 0.5rem;"
+            value="${titulo}"
         >
         <input 
             type="url" 
             class="form-input bula-url-input" 
             placeholder="URL da bula"
+            value="${url}"
             style="flex: 2; margin-right: 0.5rem;"
         >
         <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
@@ -258,6 +266,47 @@ const getFarmacocineticaData = () => {
     };
 };
 
+const params = new URLSearchParams(window.location.search)
+const id = params.get("id")
+
+const carregarDadosIniciais = async () => {
+    try{
+        const pesquisa = await axios.get(`/api/v1/dephar/?id=${id}`)
+        console.log(pesquisa.data)
+        const principio = pesquisa.data.principio[0]
+        nomeFarmacoInput.value = principio.nomeFarmaco
+        nomeQuimicoInput.value = principio.nomeQuimico
+        formulaMolecularInput.value = principio.formulaMolecular
+        formulaEstrutturalInput.value = principio.formulaEstrutural
+        pesoMolarInput.value = principio.pesoMolar
+        classeInput.value = principio.classe
+        toxicidadeInput.value = principio.toxicidade
+        farmacodinamicaInput.value = principio.farmacodinamica
+        farmacocineticaInput.value = principio.farmacocinetica?.textoCompleto || "";
+        farmacogeneticaInput.value = principio.farmacogenetica
+        armazenamentoInput.value = principio.armazenamento
+        origemInput.value = principio.origem
+        producaoInput.value = principio.producao
+        descarteInput.value = principio.descarte
+        validadeAnosInput.value = principio.validadeAnos
+        principio.indicacoesTerapeuticas?.forEach(valor => addIndicacao(valor))
+        principio.contraindicacoes?.forEach(valor => addContraindicacao(valor))
+        principio.formasFarmaceuticas?.forEach(valor => addFormaFarmaceutica(valor))
+        principio.interacoesMedicamentosas?.forEach(valor => addInteracaoMedicamentosa(valor))
+        principio.interacoesAlimentos?.forEach(valor => addInteracaoAlimento(valor))
+        principio.incompatibilidades?.forEach(valor => addIncompatibilidade(valor))
+        principio.bulas?.forEach(bula => addBula(bula.titulo, bula.url))
+    }
+    catch(error){
+        console.error("Erro ao buscar informações do princípio ativo:", error);
+                alert("Erro ao carregar informações do princípio ativo!");
+                window.location.href = "/dephar";
+
+    }
+}
+
+carregarDadosIniciais();
+
 principioForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     
@@ -289,7 +338,7 @@ principioForm.addEventListener("submit", async (event) => {
     const token = localStorage.getItem("token");
 
     try {
-        const response = await axios.post("/api/v1/dephar/", {
+        const response = await axios.patch(`/api/v1/dephar/${id}`, {
             nomeFarmaco: nomeFarmacoInput.value.trim(),
             nomeQuimico: nomeQuimicoInput.value.trim(),
             formulaMolecular: formulaMolecularInput.value.trim(),
@@ -327,8 +376,9 @@ principioForm.addEventListener("submit", async (event) => {
         });
         
         // Adicione feedback de sucesso
-        alert("Princípio ativo cadastrado com sucesso!");
+        alert("Princípio ativo atualizado com sucesso!");
         window.location.href = "/dephar";
+
         
     } catch(error) {
         console.error("Erro completo:", error);
@@ -337,9 +387,9 @@ principioForm.addEventListener("submit", async (event) => {
         if (error.response) {
             console.error("Dados do erro:", error.response.data);
             console.error("Status:", error.response.status);
-            alert(`Erro ao cadastrar: ${error.response.data.message || 'Erro desconhecido'}`);
+            alert(`Erro ao atualizar: ${error.response.data.message || 'Erro desconhecido'}`);
         } else {
             alert("Erro ao conectar com o servidor!");
         }
-    }
+}
 });

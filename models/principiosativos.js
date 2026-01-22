@@ -1,38 +1,39 @@
 const mongoose = require("mongoose")
 
 const principioSchema = new mongoose.Schema({
-    nome: {
+
+    nomeFarmaco: {
+        type: String,
+        required: true,
+        maxLength: 100
+    },
+
+    nomeQuimico: {
+        type: String,
+        required: true,
+        maxLength: 150
+    },
+
+    formulaMolecular: {
         type: String,
         required: true,
         maxLength: 50
     },
 
-    descricao: {
-        type: String,
-        required: true,
-        maxLength: 120
-    },
-
-    formula: {
-        type: String,
-        required: true,
-        maxLength: 30
+    formulaEstrutural: {
+        type: String, 
+        required: false
     },
 
     pesoMolar: {
         type: Number,
-        required: true
+        required: false
     },
 
-    classeTerapeutica: {
+    classe: {
         type: String,
         required: true,
-        /*
-        enum: {
-            values: ["Antibióticos", "Analgésicos", "Antivirais", "Antifúngicos", "Antiparasitórios", "Anti-inflamatórios", " Antipiréticos",  " Antihistamínicos", "Expectorantes"],
-            message: "Classe Terapeutica não registrada!"
-        }
-        */
+        maxLength: 100
     },
 
     indicacoesTerapeuticas: {
@@ -40,37 +41,92 @@ const principioSchema = new mongoose.Schema({
         required: true
     },
 
-    contraIndicacoes: {
+    contraindicacoes: {
         type: [String],
         required: true
     },
 
-    efeitosColaterais: {
-        type: [String], // Novo campo para armazenar os efeitos colaterais
+    toxicidade: {
+        type: String,
+        required: false,
+        maxLength: 500
+    },
+
+    formasFarmaceuticas: {
+        type: [String],
         required: true
     },
 
-    classeFarmacologica: {
+    farmacodinamica: {
         type: String,
-        required: true
+        required: true,
+        maxLength: 1000
+    },
+
+    farmacocinetica: {
+        absorcao: String,
+        distribuicao: String,
+        metabolismo: String,
+        excrecao: String,
+        textoCompleto: String
+    },
+
+    farmacogenetica: {
+        type: String,
+        required: false,
+        maxLength: 1000
+    },
+
+    interacoesMedicamentosas: {
+        type: [String],
+        required: false
+    },
+
+    interacoesAlimentos: {
+        type: [String],
+        required: false
     },
 
     armazenamento: {
         type: String,
-        required: true
+        required: true,
+        maxLength: 300
+    },
+
+    incompatibilidades: {
+        type: [String],
+        required: false
+    },
+
+    origem: {
+        type: String,
+        required: false
+    },
+
+    producao: {
+        type: String,
+        required: false,
+        maxLength: 500
     },
 
     descarte: {
         type: String,
-        required: true
+        required: true,
+        maxLength: 300
     },
 
     validadeAnos: {
         type: Number,
         required: true
-    }
-    
-}, {timestamps: true})
+    },
 
+    bulas: [{
+        titulo: String,
+        url: String,
+        dataAdicao: Date
+    }],
+
+}, {timestamps: true})
+    
 const principioModel = mongoose.model("PrincipioAtivo", principioSchema)
 module.exports = principioModel
