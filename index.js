@@ -27,6 +27,10 @@ app.get("/dephar/principio", (req,res) => {
     res.sendFile(path.join(__dirname, "public", "html", "principio.html"))
 })
 
+app.get("/dephar/principio/editarPrincipio", (req,res) => {
+    res.sendFile(path.join(__dirname, "public", "html", "updatePrincipio.html"))
+})
+
 app.get("/dephar/login", (req,res) => {
     res.sendFile(path.join(__dirname, "public", "html", "login.html"))
 })

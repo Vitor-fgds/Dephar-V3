@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo" onclick="goHome()">DePhar</div>
@@ -28,97 +27,134 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Back Button -->
         <a class="back-button" onclick="goBack()"> 
             ← Voltar à Pesquisa
         </a>
 
-        <!-- Delete Button (só aparece para moderadores) -->
+        <button class="edit-button" id="editButton" style="display: none;">
+            ✏️ Editar Princípio
+        </button>
+
         <button class="delete-button" id="deleteButton" style="display: none;">
             🗑️ Excluir Princípio Ativo
         </button>
 
-        <!-- Loading State -->
         <div class="loading" id="loadingState">
             <div class="loading-spinner"></div>
             <p>Carregando informações do princípio ativo...</p>
         </div>
 
-        <!-- Content Section -->
         <div id="contentSection" style="display: none;">
-            <!-- Title Section -->
             <div class="title-section">
-                <h1 class="principle-title" id="principleName"></h1>
-                <p class="principle-subtitle"></p>
+                <h1 class="principle-title" id="nomeFarmaco"></h1>
+                <p class="principle-subtitle" id="nomeQuimico"></p>
             </div>
 
-            <!-- Technical Information Grid -->
             <div class="technical-grid">
                 <div class="technical-card">
                     <div class="technical-title">Fórmula Molecular</div>
-                    <div class="technical-value" id="formula"></div>
+                    <div class="technical-value" id="formulaMolecular"></div>
                 </div>
                 <div class="technical-card">
                     <div class="technical-title">Peso Molar</div>
                     <div class="technical-value" id="pesoMolar"></div>
                 </div>
                 <div class="technical-card">
-                    <div class="technical-title">Classe Terapêutica</div>
-                    <div class="technical-value" id="classeTerapeutica"></div>
+                    <div class="technical-title">Classe</div>
+                    <div class="technical-value" id="classe"></div>
                 </div>
                 <div class="technical-card">
-                    <div class="technical-title">Classe Farmacológica</div>
-                    <div class="technical-value" id="classeFarmacologica"></div>
+                    <div class="technical-title">Validade</div>
+                    <div class="technical-value" id="validadeAnos"></div>
                 </div>
             </div>
 
-            <!-- Properties Grid -->
+            <div class="structure-container" id="containerFormulaEstrutural" style="display: none;">
+                <h3 class="structure-title">Fórmula Estrutural</h3>
+                <img id="formulaEstruturalImg" class="structure-image" alt="Fórmula Estrutural">
+            </div>
+
             <div class="properties-grid">
-                <!-- Description -->
+                
                 <div class="property-card large-card">
-                    <h2 class="property-title">📋 Descrição</h2>
-                    <div class="property-content" id="descricao"></div>
+                    <h2 class="property-title">🔬 Farmacodinâmica</h2>
+                    <div class="property-content" id="farmacodinamica"></div>
                 </div>
 
-                <!-- Therapeutic Indications -->
+                <div class="property-card large-card" id="cardFarmacocinetica">
+                    <h2 class="property-title">🧬 Farmacocinética</h2>
+                    <div class="property-content" id="farmacocinetica"></div>
+                </div>
+
+                <div class="property-card" id="cardFarmacogenetica">
+                    <h2 class="property-title">🧬 Farmacogenética</h2>
+                    <div class="property-content" id="farmacogenetica"></div>
+                </div>
+
                 <div class="property-card">
                     <h2 class="property-title">✅ Indicações Terapêuticas</h2>
                     <div class="property-content" id="indicacoesTerapeuticas"></div>
                 </div>
 
-                <!-- Contraindications -->
-                <div class="property-card warning-card">
-                    <h2 class="property-title">⚠️ Contraindicações</h2>
-                    <div class="property-content" id="contraIndicacoes"></div>
+                <div class="property-card">
+                    <h2 class="property-title">💊 Formas Farmacêuticas</h2>
+                    <div class="property-content" id="formasFarmaceuticas"></div>
+                </div>
+
+                <div class="property-card" id="cardInteracoesMed">
+                    <h2 class="property-title">🔄 Interações Medicamentosas</h2>
+                    <div class="property-content" id="interacoesMedicamentosas"></div>
+                </div>
+
+                <div class="property-card" id="cardInteracoesAlim">
+                    <h2 class="property-title">🍎 Interações Alimentares</h2>
+                    <div class="property-content" id="interacoesAlimentos"></div>
                 </div>
 
                 <div class="property-card">
-                    <h2 class="property-title">Validade</h2>
-                    <div class="property-content" id="validade"></div>
-                </div>
-
-                <div class="property-card warning-card">
-                    <h2 class="property-title">⚠️ Descarte</h2>
-                    <div class="property-content" id="descarte"></div>
-                </div>
-
-                <div class="property-card">
-                    <h2 class="property-title">Armazenamento</h2>
+                    <h2 class="property-title">📦 Armazenamento</h2>
                     <div class="property-content" id="armazenamento"></div>
                 </div>
 
-                <!-- Side Effects -->
-                <div class="property-card warning-card">
-                    <h2 class="property-title">🔴 Efeitos Colaterais</h2>
-                    <div class="property-content" id="efeitosColaterais"></div>
+                <div class="property-card" id="cardIncompatibilidades">
+                    <h2 class="property-title">❌ Incompatibilidades</h2>
+                    <div class="property-content" id="incompatibilidades"></div>
                 </div>
+
+                <div class="property-card" id="cardOrigemProducao">
+                    <h2 class="property-title">🏭 Origem e Produção</h2>
+                    <div class="property-content">
+                        <p id="origem"></p>
+                        <p id="producao" style="margin-top: 0.5rem;"></p>
+                    </div>
+                </div>
+
+                <div class="property-card warning-card">
+                    <h2 class="property-title">⚠️ Contraindicações</h2>
+                    <div class="property-content" id="contraindicacoes"></div>
+                </div>
+
+                <div class="property-card warning-card">
+                    <h2 class="property-title">🗑️ Descarte</h2>
+                    <div class="property-content" id="descarte"></div>
+                </div>
+
+                <div class="property-card warning-card" id="cardToxicidade">
+                    <h2 class="property-title">☣️ Toxicidade</h2>
+                    <div class="property-content" id="toxicidade"></div>
+                </div>
+
+            </div>
+
+            <div id="sectionBulas" style="display: none; margin-top: 2rem;">
+                <h2 class="section-heading">📄 Bulas e Documentação</h2>
+                <div class="bulas-grid" id="bulasContainer">
+                    </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>© 2025 DEPHAR - Departamento de Farmácia UFVJM</p>

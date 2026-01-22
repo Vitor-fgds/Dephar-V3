@@ -133,12 +133,12 @@ const buscaPrincipios = (principio) => {
     divPrincipio.classList.add("principle-card");
     
     const nomePrincipio = document.createElement("h3");
-    nomePrincipio.innerText = principio.nome;
+    nomePrincipio.innerText = principio.nomeFarmaco;
     nomePrincipio.classList.add("principle-name");
     
     const descricaoPrincipio = document.createElement("p");
     descricaoPrincipio.classList.add("principle-description");
-    descricaoPrincipio.innerText = principio.descricao;
+    descricaoPrincipio.innerText = "";
     
     divPrincipio.appendChild(nomePrincipio);
     divPrincipio.appendChild(descricaoPrincipio);

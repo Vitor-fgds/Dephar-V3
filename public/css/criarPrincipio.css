@@ -522,3 +522,61 @@ body {
         font-size: 1rem;
     }
 }
+
+/* 
+   Adicione este CSS ao final do arquivo criarPrincipio.css existente
+   ou crie um novo arquivo e importe após o CSS principal
+*/
+
+/* Ajustes para campos de bulas com múltiplos inputs na mesma linha */
+.array-item {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+/* Garantir que inputs de bula fiquem lado a lado em telas maiores */
+@media (min-width: 769px) {
+    .array-item input[style*="flex"] {
+        min-width: 0; /* Previne overflow */
+    }
+}
+
+/* Ajuste responsivo para campos de bula em telas menores */
+@media (max-width: 768px) {
+    #bulasItems .array-item {
+        flex-direction: column;
+    }
+    
+    #bulasItems .array-item input {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    #bulasItems .btn-remove {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+/* Melhoria visual para textareas maiores */
+.form-textarea {
+    min-height: 100px;
+}
+
+#farmacodinamica,
+#farmacocinetica {
+    min-height: 120px;
+}
+
+/* Destaque sutil para campos opcionais vs obrigatórios */
+.form-input:not([required]),
+.form-textarea:not([required]) {
+    background: #FAFAFA;
+}
+
+.form-input:not([required]):focus,
+.form-textarea:not([required]):focus {
+    background: white;
+}

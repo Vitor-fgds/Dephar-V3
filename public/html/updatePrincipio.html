@@ -27,8 +27,8 @@
     <main class="main-content">
         <!-- Title Section -->
         <div class="title-section">
-            <h1 class="main-title">Cadastrar Princípio Ativo</h1>
-            <p class="subtitle">Preencha todos os campos obrigatórios para adicionar um novo princípio ativo</p>
+            <h1 class="main-title">Atualizar Princípio Ativo</h1>
+            <p class="subtitle">Altere os campos que deseja atualizar</p>
         </div>
 
         <!-- Form Container -->
@@ -142,15 +142,6 @@
                     </label>
                     <div class="array-input-container" id="indicacoesContainer">
                         <div class="array-items" id="indicacoesItems">
-                            <div class="array-item">
-                                <input 
-                                    type="text" 
-                                    class="form-input indicacao-input" 
-                                    placeholder="Digite uma indicação terapêutica"
-                                    required
-                                >
-                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
-                            </div>
                         </div>
                         <button type="button" class="btn-add" onclick="addIndicacao()">+ Adicionar Indicação</button>
                     </div>
@@ -167,15 +158,6 @@
                     </label>
                     <div class="array-input-container" id="contraindicacoesContainer">
                         <div class="array-items" id="contraindicacoesItems">
-                            <div class="array-item">
-                                <input 
-                                    type="text" 
-                                    class="form-input contraindicacao-input" 
-                                    placeholder="Digite uma contraindicação"
-                                    required
-                                >
-                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
-                            </div>
                         </div>
                         <button type="button" class="btn-add" onclick="addContraindicacao()">+ Adicionar Contraindicação</button>
                     </div>
@@ -205,15 +187,6 @@
                     </label>
                     <div class="array-input-container" id="formasContainer">
                         <div class="array-items" id="formasItems">
-                            <div class="array-item">
-                                <input 
-                                    type="text" 
-                                    class="form-input forma-input" 
-                                    placeholder="Ex: Comprimido 500mg"
-                                    required
-                                >
-                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
-                            </div>
                         </div>
                         <button type="button" class="btn-add" onclick="addFormaFarmaceutica()">+ Adicionar Forma</button>
                     </div>
@@ -274,14 +247,6 @@
                     </label>
                     <div class="array-input-container" id="interacoesMedContainer">
                         <div class="array-items" id="interacoesMedItems">
-                            <div class="array-item">
-                                <input 
-                                    type="text" 
-                                    class="form-input interacao-med-input" 
-                                    placeholder="Ex: Evitar uso com varfarina"
-                                >
-                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
-                            </div>
                         </div>
                         <button type="button" class="btn-add" onclick="addInteracaoMedicamentosa()">+ Adicionar Interação</button>
                     </div>
@@ -293,14 +258,6 @@
                     </label>
                     <div class="array-input-container" id="interacoesAlimContainer">
                         <div class="array-items" id="interacoesAlimItems">
-                            <div class="array-item">
-                                <input 
-                                    type="text" 
-                                    class="form-input interacao-alim-input" 
-                                    placeholder="Ex: Tomar com alimentos"
-                                >
-                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
-                            </div>
                         </div>
                         <button type="button" class="btn-add" onclick="addInteracaoAlimento()">+ Adicionar Interação</button>
                     </div>
@@ -331,14 +288,6 @@
                     </label>
                     <div class="array-input-container" id="incompatibilidadesContainer">
                         <div class="array-items" id="incompatibilidadesItems">
-                            <div class="array-item">
-                                <input 
-                                    type="text" 
-                                    class="form-input incompatibilidade-input" 
-                                    placeholder="Ex: Incompatível com soluções alcalinas"
-                                >
-                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
-                            </div>
                         </div>
                         <button type="button" class="btn-add" onclick="addIncompatibilidade()">+ Adicionar Incompatibilidade</button>
                     </div>
@@ -422,21 +371,6 @@
                     </label>
                     <div class="array-input-container" id="bulasContainer">
                         <div class="array-items" id="bulasItems">
-                            <div class="array-item">
-                                <input 
-                                    type="text" 
-                                    class="form-input bula-titulo-input" 
-                                    placeholder="Título da bula"
-                                    style="flex: 1; margin-right: 0.5rem;"
-                                >
-                                <input 
-                                    type="url" 
-                                    class="form-input bula-url-input" 
-                                    placeholder="URL da bula"
-                                    style="flex: 2; margin-right: 0.5rem;"
-                                >
-                                <button type="button" class="btn-remove" onclick="removeArrayItem(this)">Remover</button>
-                            </div>
                         </div>
                         <button type="button" class="btn-add" onclick="addBula()">+ Adicionar Bula</button>
                     </div>
@@ -445,7 +379,7 @@
                 <!-- Form Actions -->
                 <div class="form-actions">
                     <button type="button" class="btn-cancel" onclick="cancelForm()">Cancelar</button>
-                    <button type="submit" class="btn-submit">Cadastrar Princípio Ativo</button>
+                    <button type="submit" class="btn-submit">Atualizar Princípio Ativo</button>
                 </div>
             </form>
         </div>
@@ -461,6 +395,6 @@
             </div>
         </div>
     </footer>
-    <script src="js/criarPrincipio.js"></script>
+    <script src="js/updatePrincipio.js"></script>
 </body>
 </html>
