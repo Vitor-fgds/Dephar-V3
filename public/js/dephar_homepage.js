@@ -95,7 +95,7 @@ const pesquisaPrincipios = async (event) => {
     const name = searchInput.value.trim();
     
     try {
-        const pesquisa = await axios.get(`/api/v1/dephar/?nome=${name}`);
+        const pesquisa = await axios.get(`/api/v1/dephar/?nomeFarmaco=${name}`);
         const principios = pesquisa.data.principio;
         containerPrincipio.innerHTML = "";
         
