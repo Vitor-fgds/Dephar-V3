@@ -4,7 +4,7 @@ const getPrincipio = async (req,res) => {
     const {nomeFarmaco} = req.query;
     const queryObject = {}
 
-    if(nome){
+    if(nomeFarmaco){
         queryObject.nomeFarmaco = {$regex: nomeFarmaco, $options: "i" }
     }
     const result = principioAtivo.find(queryObject);
