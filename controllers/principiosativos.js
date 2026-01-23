@@ -1,11 +1,11 @@
 const principioAtivo = require("../models/principiosativos.js")
 const getPrincipio = async (req,res) => {
     try{
-    const {nome} = req.query;
+    const {nomeFarmaco} = req.query;
     const queryObject = {}
 
     if(nome){
-        queryObject.nome = {$regex: nome, $options: "i" }
+        queryObject.nomeFarmaco = {$regex: nomeFarmaco, $options: "i" }
     }
     const result = principioAtivo.find(queryObject);
     const principio = await result;
